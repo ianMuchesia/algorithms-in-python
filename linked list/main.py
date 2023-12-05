@@ -7,9 +7,12 @@ class LinkedList:
     def __init__(self):
         self.head = None
         
+        
+    #check if it is empty
     def isEmpty(self):
         return self.head == None
     
+    #append to the end of the list
     def append(self, val):
         node = Node(val)
         if self.isEmpty():
@@ -22,6 +25,7 @@ class LinkedList:
             
             current.next = node
     
+    #print the list
     def print_list(self):
         if self.isEmpty():
             print("list is empty")
@@ -35,6 +39,7 @@ class LinkedList:
                 current = current.next
             print(value)
     
+    #prepend to the beginning of the list
     def prepend(self,val):
         node = Node(val)
         if self.isEmpty():
@@ -52,6 +57,7 @@ class LinkedList:
         node.next = prevNode.next
         prevNode.next = node
         
+    #delete node by value
     def delete_node(self,key):
         current = self.head
         
@@ -68,6 +74,7 @@ class LinkedList:
         prev.next = current.next
         current= None
         
+    #delete node by position
     def delete_by_position(self,pos):
         if not self.isEmpty():
             current = self.head
@@ -90,6 +97,7 @@ class LinkedList:
             prev.next = current.next
             current = None
     
+    #delete the entire list
     def list_length(self):
         count = 0
         current = self.head
@@ -104,6 +112,74 @@ class LinkedList:
         return 1 + self.list_length_recursive(node.next)
                     
         
+    #swap nodes 
+    def swap_nodes(self, key_1,key_2):
+        
+        if key_1 == key_2:
+            return
+        prev_1=None
+        current_1 = self.head
+        
+      
+        while current_1:
+            if current_1.data == key_1:
+                break
+            prev_1 = current_1
+            current_1 = current_1.next
+       
+        prev_2 = None
+        current_2 = self.head
+        
+        while current_2:
+            if current_2.data == key_2:
+                break
+            prev_2 = current_2
+            current_2 = current_2.next
+          
+
+        if not current_2 or not current_1:
+            return None
+        if prev_1:
+            prev_1.next = current_2
+        else:
+            self.head = current_2
+        if prev_2:
+            prev_2.next = current_1
+        else:
+            self.head = current_1
+            
+        current_1.next, current_2.next = current_2.next , current_1.next
+    
+    #reverse a linked list
+    def reverse_list(self):
+        if self.isEmpty():
+            return
+        prev = None
+        current = self.head
+        
+        while current:
+            temp = current.next
+            current.next = prev
+            prev = current
+            current = temp
+        self.head = prev
+        
+    def recursive_reverse(self):
+        if self.isEmpty():
+            return
+        
+        def recursiveImplementation(prev,current):
+            if not current:
+                return prev
+            temp = current.next
+            current.next = prev
+            prev = current
+            current = temp
+            return recursiveImplementation(prev,current)
+        
+        self.head = recursiveImplementation(None, self.head)
+            
+            
         
         
         
@@ -120,6 +196,9 @@ print(node_list.list_length_recursive(node_list.head))
 node_list.delete_node(4)
 node_list.delete_by_position(1)
 print(node_list.list_length())
+node_list.swap_nodes(7,3)
+node_list.recursive_reverse()
+node_list.reverse_list()
 node_list.print_list()
 
         
