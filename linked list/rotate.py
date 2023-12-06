@@ -2,25 +2,31 @@ from main import Node
 from removeDuplicates import print_list
 
 def rotateList(node,n):
-    p = node
-    q=None
+    
+    fast = node
+    slow = None
+    
+    start = node
+    
     count = 0
-    head = node
-    start = None
     
-    while p:
-        if count-1 == n:
-            q = p
-            start = p.next
-        p = p.next
+    while count < n:
+        temp = fast
+        fast = fast.next
+        slow = temp
+        count+=1
+        
+    new_start = slow.next
+    slow.next = None
     
+    while fast.next:
+        fast = fast.next
+    
+    fast.next = start
+    
+    return new_start
+
  
-    q.next = None
-    p.next = head
-    
-    return start
-
-
 node1 = Node(1)
 node2 = Node(2)
 node3 = Node(3)
