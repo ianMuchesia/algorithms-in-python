@@ -1,8 +1,14 @@
 from typing import List
 class Solution:
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
-        fast = 1
-        slow = -1
+        if n == 0:
+            return True
+        
+        if len(flowerbed) < 2:
+            if n < 2:
+                return flowerbed[0] == 0
+            else:
+                return False
         
         if flowerbed[0] == 0 and flowerbed[1]==0:
             n-=1
@@ -29,4 +35,4 @@ class Solution:
     
 solution = Solution()
 
-print(solution.canPlaceFlowers([1,0,0,0,0,1],2))
+print(solution.canPlaceFlowers([0],1))
