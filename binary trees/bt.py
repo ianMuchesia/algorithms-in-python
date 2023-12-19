@@ -43,7 +43,9 @@ class BinarySearchTree:
                 return self.search(root.right, value)
     
     def preOrder(self,root:Node):
+        #check if the current node is empty or null
         if root:
+            
             print(root.value)
             self.preOrder(root.left)
             self.preOrder(root.right)
