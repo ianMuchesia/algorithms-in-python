@@ -8,7 +8,7 @@ class TreeNode:
         self.right = right
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
-        midpoint = ceil(len(nums)/2)-1
+        midpoint = len//2
         
         tree = TreeNode(val=nums[midpoint])
         
