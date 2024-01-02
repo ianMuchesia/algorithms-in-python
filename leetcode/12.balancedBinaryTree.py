@@ -6,31 +6,18 @@ class TreeNode:
         self.right = right
 class Solution:
     def isBalanced(self, root: Optional[TreeNode], count:int = 0) -> bool:
+        def height_of_tree(root):
+            if root is None:
+                return 0
+            else:
+                left_height = height_of_tree(root.left)
+                right_height = height_of_tree(root.right)
+
+        # Choose the maximum height between left and right subtrees
+            return max(left_height, right_height) + 1
         
-        
-        def helper(func,root):
-            
-            if not root:
-                return count
-        
-            left = helper(root.left, count +1)
-            right = helper(root.right, count + 1)
-        
-        
-            return  func(left,right)
-        
-        
-        def helper_balance(root):
-            if not root:
-                return True
-            
-            left_height = helper(max,root.left)
-            right_height = helper(max, root.right)
-            
-            
-            return abs(left_height-right_height)<= 0 and helper_balance(root.left) and helper_balance(root.right)
-        
-        return helper_balance(root)
+        return height_of_tree(root.right)
+       
     
     def minDepth(self, root: Optional[TreeNode],count:int=0) -> int:
         
@@ -58,14 +45,18 @@ class Solution:
         
 
 
-bst = TreeNode(1)
-bst.left = TreeNode(2)
-bst.left.left = TreeNode(4)
-bst.right = TreeNode(3)
-bst.right.right = TreeNode(5)
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(2)
+root.left.left = TreeNode(3)
+
+root.left.left.left = TreeNode(4)
+root.right.right = TreeNode(3)
+
+root.right.right.right = TreeNode(4)
 
 sol =Solution()
 
-print(sol.minDepth(bst))
+print(sol.isBalanced(root))
 
 
