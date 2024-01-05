@@ -12,6 +12,9 @@ def height_of_tree(root):
 
         # Choose the maximum height between left and right subtrees
         return max(left_height, right_height) + 1
+    
+    
+   
 
 
 

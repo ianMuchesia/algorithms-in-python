@@ -6,17 +6,17 @@ class TreeNode:
         self.right = right
 class Solution:
     def isBalanced(self, root: Optional[TreeNode], count:int = 0) -> bool:
-        def height_of_tree(root):
-            if root is None:
-                return 0
-            else:
-                left_height = height_of_tree(root.left)
-                right_height = height_of_tree(root.right)
+         
+            def height(node):
+                if not node:
+                    return 0
+                left_height = height(node.left)
+                right_height = height(node.right)
+                if left_height == -1 or right_height == -1 or abs(left_height - right_height) > 1:
+                    return -1
+                return max(left_height, right_height) + 1
 
-        # Choose the maximum height between left and right subtrees
-            return max(left_height, right_height) + 1
-        
-        return height_of_tree(root.right)
+            return height(root) != -1
        
     
     def minDepth(self, root: Optional[TreeNode],count:int=0) -> int:
