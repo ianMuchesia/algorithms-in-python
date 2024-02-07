@@ -128,20 +128,22 @@ class Solution:
             return True
         return helper(root, root.val)   
 
-                
+               
+    def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        
+        def helper(root:Optional[TreeNode],v,count=0):
+            if not root:
+                return count
+              
+            if root.left == v or root.right == v:
+                return count + 1
             
+            left = helper(root.left,v,count+1)
+            right = helper(root.right,v,count+1) 
             
-
-                
+            return max(left,right)
         
-          
             
-        
-        
-        
-        
-        
-        
                  
             
     
