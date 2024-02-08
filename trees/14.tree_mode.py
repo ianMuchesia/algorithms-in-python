@@ -27,6 +27,33 @@ class Solution:
             if value == maxNum:
                 res.append(key)
         return res
+
+     
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        
+        nums = []
+        
+        def traverse(root:Optional[TreeNode]):
+            nonlocal nums
+            if root:
+                nums.append(root.val)
+                traverse(root.left)
+                traverse(root.right)
+        
+        traverse(root)   
+        nums.sort()
+        minimum = float("inf")
+        
+        for i in range(len(nums)-1):
+            if (nums[i+1] - nums[i]) < minimum:
+                minimum = nums[i+1] - nums[i]
+        
+        return minimum
+              
+
+                
+                
+            
     
     
     
