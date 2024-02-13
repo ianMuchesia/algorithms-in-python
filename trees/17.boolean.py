@@ -55,18 +55,22 @@ class Solution:
     
     def minDiffInBST(self, root: Optional[TreeNode]) -> int:
         diff = float("inf")
-        def helper(root:Optional[TreeNode],prev=float("inf")):
-            nonlocal diff
+        prev = float("-inf")
+        def helper(root:Optional[TreeNode]):
+            nonlocal diff,prev
             if root:                
-                helper(root.left,root.val)
+                helper(root.left)
                 
                 if abs(root.val - prev) < diff:
                     diff = abs(root.val - prev)
-                helper(root.right,root.val)
+                prev  = root.val
+                helper(root.right)
                 
         helper(root)
         return diff
-                
+    
+    
+         
                 
                 
                 
