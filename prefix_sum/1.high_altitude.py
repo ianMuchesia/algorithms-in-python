@@ -35,7 +35,7 @@ def minStartValue(nums: List[int]) -> int:
         total += nums[i]
         res.append(total)
         
-    print(res)
+    print(ResourceWarning)
     print(min(res))
     print(1-min(res))
     return 1
