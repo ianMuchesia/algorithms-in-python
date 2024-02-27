@@ -54,35 +54,35 @@ class Solution:
         res2 = []
         
         
-        while i < len(sortedArr1) and j< len(sortedArr2):
+        return sortedArr2
+        # while i < len(sortedArr1) and j< len(sortedArr2):
             
-            if sortedArr1[i] > sortedArr1[j]:
-                res1.append(sortedArr1[i])
-                i+=1
-            elif sortedArr1[i] < sortedArr1[j]:
-                res2.append(sortedArr2[j])
-                j+=1
-            else:
-                j+=1
-                i+=1
+        #     if sortedArr1[i] > sortedArr2[j]:
+        #         res1.append(sortedArr1[i])
+        #         i+=1
+        #     elif sortedArr1[i] < sortedArr2[j]:
+        #         res2.append(sortedArr2[j])
+        #         j+=1
+        #     else:
+        #         j+=1
+        #         i+=1
                 
         
-        while i < len(sortedArr1):
-            res1.append(sortedArr1[i])
-            i+=1
+        # while i < len(sortedArr1):
+        #     res1.append(sortedArr1[i])
+        #     i+=1
             
-        while j< len(sortedArr2):
-            res2.append(sortedArr2[j])
-            j+=1
+        # while j< len(sortedArr2):
+        #     res2.append(sortedArr2[j])
+        #     j+=1
             
         
-        return [res1,res2]
+        # return [res1,res2]
 
                 
                 
         
         
 sol = Solution()
-print(sol.intersection([1,2,2,1],[2,2]))
-print(sol.intersect([1,2,2,1],[2,2]))
+print(sol.findDifference([1,2,3],[2,4,6]))
         
