@@ -16,12 +16,7 @@ class Solution:
                
                 hashmap[num] = 1
         return counter
-          
-          
-          
-          
-    
-    
+
 sol = Solution()
 print(sol.maxOperations([3,1,3,4,3],6))
             
