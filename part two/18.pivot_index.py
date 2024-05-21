@@ -11,7 +11,7 @@ class Solution:
 
             if right_sum == left_sum:
                 return i
-            right_sum -= nums[i+1] if i < len(nums) else 0
+            right_sum -= nums[i+1] 
             left_sum += nums[i]
           
         return -1  
